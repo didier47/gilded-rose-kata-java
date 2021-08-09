@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 class GildedRose {
-    Item[] items;
+    private final Item[] items;
 
     private static final String AGED_BRIE = "Aged Brie";
     private static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
@@ -11,6 +11,7 @@ class GildedRose {
     private static final Integer BACKSTAGE_PASSES_TRIPLE_INCREASE_QUALITY_SELL_IN_THRESHOLD = 5;
     private static final Integer BACKSTAGE_PASSES_RESET_QUALITY_SELL_IN_THRESHOLD = 0;
     private static final Integer DEFAULT_ITEM_DOUBLE_DECREASE_QUALITY_SELL_IN_THRESHOLD = 0;
+    private static final Integer AGED_BRIE_DOUBLE_DECREASE_QUALITY_SELL_IN_THRESHOLD = 0;
 
     private static final Integer MAX_QUALITY = 50;
     private static final Integer MIN_QUALITY = 0;
@@ -44,7 +45,7 @@ class GildedRose {
     private void updateQualityAgedBrie(Item item) {
         increaseQuality(item);
 
-        if (item.sellIn < DEFAULT_ITEM_DOUBLE_DECREASE_QUALITY_SELL_IN_THRESHOLD) {
+        if (item.sellIn < AGED_BRIE_DOUBLE_DECREASE_QUALITY_SELL_IN_THRESHOLD) {
             increaseQuality(item);
         }
     }
